@@ -3,8 +3,8 @@ import requests
 import json
 import time
 
-client_id = "gekLf_ZKgqMPwNwY7BGV" # private info
-client_secret = "2xca3RyrIl"  # private info
+client_id = "JfMpmv64nah1_Xi6b1CE" # private info
+client_secret = "lDeEYya5VI"  # private info
 url = "https://openapi.naver.com/v1/vision/face"  # 얼굴 감지
 headers = {'X-Naver-Client-Id': client_id, 'X-Naver-Client-Secret': client_secret}
 
@@ -55,7 +55,8 @@ for i, file_name in enumerate(file_list):
                     break # for face in faces 반복문을 나가기
                 if i > 0:  # prev_file 이 존재할 때부터 처리
                     time = int(file_name) - int(prev_file)
-                    if time < 6: # 0.5초 간격이므로 3초이상 표정이 지속되지 않은 경우 저장x
+                    # if time < 3: # 0.5초 간격이므로 3초이상 표정이 지속되지 않은 경우 저장x
+                    if time < 3: # 1초 간격  
                         emotions.pop(prev_file, 404)
                         if not prev_emotion == emotion:
                             emotions[file_name] = emotion
@@ -78,7 +79,8 @@ for i, file_name in enumerate(file_list):
 
 # 마지막 감정에 대한 처리
 last_file = prev_file
-if int(end) - int(last_file) < 6:
+# if int(end) - int(last_file) < 6:
+if int(end) - int(last_file) < 3:
     print("last file delete !")
     emotions.pop(last_file, 404)
 
@@ -96,8 +98,8 @@ for key, value in emotions.items():
             news[prev_key] = prev_value
             continue
 
-# 오디오 추출을 위한 마지막 감정 추가
-news[end] = emotions[keys[len(keys)-1]]   
+# 오디오 추출을 위해 영상 끝나는 시간 추가 'time': '0180'
+news['time'] = end
 
 # 전체적인 분위기를 감정이 추출된 횟수로 파악
 total = count.index(max(count))

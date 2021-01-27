@@ -29,5 +29,5 @@ function faceApi(){
 }
 
 // example
-// toFrame('test.mp4')
+toFrame('test.mp4')
 // setTimeout(() => faceApi(), 10);
