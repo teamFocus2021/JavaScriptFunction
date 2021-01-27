@@ -86,13 +86,13 @@ function mergeVideo(video, new_name) {
 };
 
 // example
-// cutVideo('surprise', 5, "0000");
-// cutVideo('surprise', 3, "0005");
-// cutVideo('surprise', 2, "0008");
-// setTimeout(() => concatVideo(), 10);
-// setTimeout(() => mergeVideo(), 10);
+cutVideo('surprise', 5, "0000");
+cutVideo('surprise', 3, "0005");
+cutVideo('surprise', 2, "0008");
+setTimeout(() => concatVideo(), 10);
+setTimeout(() => mergeVideo(), 10);
 
 
-// module.exports = makeVideo;
+module.exports = makeVideo;
 
 

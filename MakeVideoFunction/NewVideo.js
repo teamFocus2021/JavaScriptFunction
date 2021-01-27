@@ -9,8 +9,8 @@ const new_name = 'new_video.mp4';
 var music  = {};
 
 //------영상처리 and 감정분석------
-// toFrame(file_name);
-// setTimeout(() => faceApi(), 10);
+toFrame(file_name);
+setTimeout(() => faceApi(), 10);
 
 //--------auto-make video---------
 deleteFile();
@@ -81,10 +81,10 @@ function makeVideo(){
     setTimeout(() => {
         console.log("-----ready to download!-----");
     }, 10);
-    // setTimeout(() => mergeVideo(file_name, new_name), 10); // 버튼 누르면 실행시켜서 저장되게 만들기(option : 다운로드 눌렀을 때 저장할 이름 설정)
-    //    setTimeout(() => {
-    //    console.log("-----download complete!-----");
-    // }, 10);
+    setTimeout(() => mergeVideo(file_name, new_name), 10); // 버튼 누르면 실행시켜서 저장되게 만들기(option : 다운로드 눌렀을 때 저장할 이름 설정)
+    setTimeout(() => {
+    console.log("-----download complete!-----");
+    }, 10);
 }
 
 
